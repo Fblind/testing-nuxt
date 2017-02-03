@@ -34,6 +34,26 @@ module.exports = {
     ]
   },
 
+  //Extend webpack configuration
+  build: {
+    extend (config, context) {
+      // config is the webpack config
+      // context.dev is a boolean, equals false when `nuxt build`
+      // context.isClient is a boolean, let you know when you extend
+      // the config for the client bundle or the server bundle
+      if (context.isClient) {
+        var globalPolyfill = [
+          "babel-polyfill",
+        ]
+        var vendorPolyfills = [
+          "eventsource-polyfill",
+        ]
+        config.entry.app = globalPolyfill.concat([config.entry.app])
+        config.entry.vendor = vendorPolyfills.concat(config.entry.vendor)
+      }
+    }
+  },
+
   plugins: [
     '~plugins/vue-inject',
     //'~plugins/register-store-data',
