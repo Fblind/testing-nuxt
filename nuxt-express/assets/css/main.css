@@ -26,3 +26,19 @@ a, a:hover, a:focus, a:visited
   max-width: 400px;
   max-height: 289px;
 }
+
+.title
+{
+  color: #000;
+  font-weight: 300;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.container
+{
+  margin: 0;
+  width: 100%;
+  padding: 100px 0;
+  text-align: center;
+}

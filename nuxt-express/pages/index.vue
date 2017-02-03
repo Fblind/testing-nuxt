@@ -6,7 +6,7 @@
     <label>Where the request comes from: {{ name }}</label>
     
     <div>
-      <form action="api/action" method="POST">
+      <form action="trips" method="GET">
         <label name="from">From</label>
         <select v-model="selectedFrom" @change="changeTo" name="from">
           <option v-for="from in froms" v-bind:value="from.name">
@@ -31,6 +31,8 @@
 import axios from '~plugins/axios'
 
 export default {
+
+  //executed only on the server, must load the page data
   async data ({ req }) {
     let users  = await axios.get('/api/users')
     let stations = await axios.get('/api/stations')
@@ -43,16 +45,33 @@ export default {
       tos: stations.data
     }
   },
+
   head () {
     return {
       title: 'Users'
     }
   },
+
+//// NO FUNCIONA: this.user is undefined
+//  store: ['user'],
+
+//  dependencies: "api",
+
+  //executed only on the browser, triggered by user actions
   methods: {
     async changeTo(rowId, $event) {
+
+console.log("$store!", this.$store);
+console.log("injected api", this.api)
+
       let newStations = await axios.get('/api/stations/changed')
       this.tos = newStations.data;
     }
+  },
+
+  //executed only on the browser, before the view is loaded
+  beforeMount () {
+    return;
   }
 }
 </script>

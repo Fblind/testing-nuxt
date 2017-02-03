@@ -10,7 +10,8 @@ module.exports = {
       { hid: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
+      { rel: 'stylesheet', type: 'text/css', href: 'css/main.css' },
     ]
   },
   /*
@@ -27,6 +28,15 @@ module.exports = {
   ** Add axios globally
   */
   build: {
-    vendor: ['axios']
-  }
+    vendor: [
+      'axios',
+      'vue-stash'
+    ]
+  },
+
+  plugins: [
+    '~plugins/vue-inject',
+    //'~plugins/register-store-data',
+    //'~plugins/vue-stash'
+  ]
 }
