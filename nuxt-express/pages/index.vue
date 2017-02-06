@@ -6,6 +6,11 @@
     <label>Where the request comes from: {{ name }}</label>
     
     <div>
+      <test></test>
+      <another></another>
+    </div>
+    
+    <div>
 
       <!-- server side route: /page, client side: #/page -->
 
@@ -39,7 +44,15 @@
 <script>
 import axios from '~plugins/axios'
 
+import Test from '../components/Test'
+import Another from '../components/Another'
+
 export default {
+
+  components: {
+    test: Test,
+    another: Another
+  },
 
   //executed only on the server, must load the page data
   async data ({ req }) {
