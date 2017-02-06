@@ -11,9 +11,14 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
-      { rel: 'stylesheet', type: 'text/css', href: 'css/main.css' },
+      { rel: 'stylesheet', type: 'text/css', href: '/css/main.css' },
+    ],
+    script: [
+      { type: 'text/javascript', src: 'https://cdnjs.cloudflare.com/ajax/libs/html5-history-api/4.2.7/history.js' },
     ]
+
   },
+
   /*
   ** Global CSS
   */
@@ -30,7 +35,7 @@ module.exports = {
   build: {
     vendor: [
       'axios',
-      'vue-stash'
+      //'vue-stash',
     ]
   },
 

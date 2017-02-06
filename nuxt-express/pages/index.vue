@@ -6,7 +6,10 @@
     <label>Where the request comes from: {{ name }}</label>
     
     <div>
-      <form action="trips" method="GET">
+
+      <!-- server side route: /page, client side: #/page -->
+
+      <form action="/trips" method="GET">
         <label name="from">From</label>
         <select v-model="selectedFrom" @change="changeTo" name="from">
           <option v-for="from in froms" v-bind:value="from.name">
@@ -23,7 +26,17 @@
         <div>Selected To: {{ selectedTo }}</div>
         <input type="submit" value="Submit">
       </form>
+
     </div>
+
+    <div>
+      <a href="#/client">GO TO THE CLIENT!!</a>
+    </div>
+
+    <div>
+      <router-link to="client">GO TO THE CLIENT WITH ROUTER LINK</router-link>
+    </div>
+
   </section>
 </template>
 
@@ -52,10 +65,7 @@ export default {
     }
   },
 
-//// NO FUNCIONA: this.user is undefined
-//  store: ['user'],
-
-//  dependencies: "api",
+  dependencies: "api",
 
   //executed only on the browser, triggered by user actions
   methods: {
@@ -72,7 +82,8 @@ console.log("injected api", this.api)
   //executed only on the browser, before the view is loaded
   beforeMount () {
     return;
-  }
+  },
+
 }
 </script>
 
