@@ -11,6 +11,12 @@ import MyFooter from '~components/Footer.vue'
 export default {
   components: {
     MyFooter
+  },
+
+  head () {
+    return {
+      bodyAttrs: {style: "background-color: light-green;"}
+    };
   }
 }
 </script>
