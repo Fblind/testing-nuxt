@@ -60,7 +60,13 @@ module.exports = {
   },
 
   plugins: [
+
+    '~plugins/global-error-handler',
+
     '~plugins/vue-inject',
+
+    // Google analytics: https://github.com/nuxt/nuxtjs.org/blob/master/plugins/ga.js
+
     //'~plugins/register-store-data',
     //'~plugins/vue-stash'
   ]

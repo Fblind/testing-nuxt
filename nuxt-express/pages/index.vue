@@ -30,10 +30,6 @@
     </div>
 
     <div>
-      <a href="#/client">GO TO THE CLIENT!!</a>
-    </div>
-
-    <div>
       <router-link to="client">GO TO THE CLIENT WITH ROUTER LINK</router-link>
     </div>
 
